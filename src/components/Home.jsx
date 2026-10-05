@@ -7,12 +7,14 @@ import Footer from './Footer'
 import Results from './Results'
 
 const Home = () => {
+  const headers = {
+    'AIC-User-Agent': 'aic-armory (yali@artic.edu)'
+  };
 
   return (
     <>
       <Nav />
       <Landing />
-      <Results />
       <Footer />
     </>
   )

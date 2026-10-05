@@ -315,6 +315,9 @@ ARMOR
   width: 250px;
   padding: 15px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .armor-container:hover {
@@ -343,6 +346,8 @@ ARMOR
 .skeleton {
   background-color: rgb(227, 227, 227) !important;
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
 }
 
 .armor-title--skeleton {

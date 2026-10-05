@@ -3,6 +3,8 @@ import Armor from './ui/Armor'
 
 const Results = ({ results: initialResults }) => {
   const [results, setResults] = useState([initialResults]);
+  const [armor, setArmor] = useState(initialResults);
+  const [loading, setLoading] = useState(true);
 
   function filterArmor(filter) {
     if (filter === 'all') {
@@ -19,6 +21,7 @@ const Results = ({ results: initialResults }) => {
   }
 
   function displayArmor(data) {
+    setLoading(false);
     return data.map((armor) => (
       <Armor key={armor.id} armor={armor} />
     ));
@@ -33,6 +36,14 @@ const Results = ({ results: initialResults }) => {
           <option value="on view">On View</option>
           <option value="off view">Off View</option>
         </select>
+
+        {loading 
+        ? new Array(6).fill(0).map((_, index) => (
+          <Armor key={index} loading={true} />
+        ))
+        : armor.map((data) => (
+          <Armor key={data.id} armor={data} />
+        ))}
       </div>
     </div>
   )

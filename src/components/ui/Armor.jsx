@@ -8,7 +8,9 @@ const Armor = ({ armor }) => {
 
   useEffect(() => {
     const image = new Image();
-    image.src = `https://www.artic.edu/iiif/2/${armor.image_id}/full/200,/0/default.jpg`;
+    if (armor.image_id) {
+      image.src = `https://www.artic.edu/iiif/2/${armor.image_id}/full/200,/0/default.jpg`;
+    }
     image.onload = () => {
       setTimeout(() => {
         if (mountedRef.current) {
@@ -18,7 +20,7 @@ const Armor = ({ armor }) => {
     };
     return () => {
     mountedRef.current = false;
-  };
+    };
   })
   
   return (
@@ -26,7 +28,7 @@ const Armor = ({ armor }) => {
       {img ? (
         <>
           <Link to={`/armor/${armor.id}`}>
-            <img src={`https://www.artic.edu/iiif/2/${armor.image_id}/full/200,/0/default.jpg`} alt={armor.title} className="armor-image" />
+            <img src={img.src} alt={armor.title} className="armor-image" />
           </Link>
           <h3 className="armor-title">
             <Link to={`/armor/${armor.id}`} className="armor__title--link">{armor.title}</Link>
