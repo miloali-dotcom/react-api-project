@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Armor from './ui/Armor'
 
 const Results = ({ results = [], loading }) => {
-  const [setResults] = useState(results);
+  const [filteredResults, setResults] = useState(results);
   const [armor, setArmor] = useState([]);
 
   function filterArmor(filter) {
@@ -18,9 +18,10 @@ const Results = ({ results = [], loading }) => {
       setResults(filteredResults);
     }
   }
+  console.log(results)
 
   return (
-    <div>
+    <>
       <div className="resultsContainer">
         <select id="filter" defaultValue="default" onChange={(event) => filterArmor(event.target.value)}> 
           <option value="default" disabled>Sort by...</option>
@@ -34,10 +35,10 @@ const Results = ({ results = [], loading }) => {
           <Armor key={index} loading={true} />
         ))
         : results.map((armor) => (
-          <Armor key={armor.title} armor={armor} />
+          <Armor key={armor.id} armor={armor} />
         ))}
       </div>
-    </div>
+    </>
   )
 }
 

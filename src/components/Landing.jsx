@@ -6,18 +6,19 @@ import Armor from './ui/Armor'
 
 const Landing = () => {
   const [armor, setArmor] = useState([])
-  const [searchTerm, setSearchTerm] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
   const [loading, setLoading] = useState(true)
 
-  function onSearch() {
-    setLoading(true);
-    fetchArmorData(searchTerm);
-  }
-
   async function fetchArmorData(searchTerm) {
-    const { data } = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&fields=title,artist_display,date_display,image_id,is_on_view`);
-    setArmor(data);
+    if (!searchTerm) return;
+    setLoading(true);
+    const { data } = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&fields=id,title,artist_display,date_display,image_id,is_on_view`);
+    setArmor(data.data);
     setLoading(false);
+  }
+  
+  function onSearch() {
+    fetchArmorData(searchTerm);
   }
 
   function onSearchKeyPress(key) {
@@ -27,13 +28,14 @@ const Landing = () => {
   }
 
   useEffect(() => {
-    fetchArmorData();
-  }, []);
+    if (searchTerm) {
+      fetchArmorData(searchTerm);
+    }
+  }, [searchTerm]);
 
   function displayArmor(data) {
-    loading = false;
     return data.map((armor) => (
-      <Armor key={armor.title} armor={armor} />
+      <Armor key={armor.id} armor={armor} />
     ));
   }
 
@@ -45,12 +47,12 @@ const Landing = () => {
             Database of Arms and Armor at the <span className="teal">Art Institute of Chicago</span>
           </h1>
           <div className="search-container">
-            <input type="text" id="searchInput" placeholder="ex: gauntlet" />
+            <input type="text" onChange={(event) => setSearchTerm(event.target.value)} id="searchInput" placeholder="ex: gauntlet" />
             <button onClick={() => onSearch()} id="searchButton" className="search-button">Search</button>
           </div>
         </div>
       </div>
-      <Results />
+      <Results results={armor} loading={loading} />
     </>
   )
 }
