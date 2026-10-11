@@ -1,30 +1,22 @@
 import React, { useState } from 'react'
 import Armor from './ui/Armor'
 
-const Results = ({ results: initialResults }) => {
-  const [results, setResults] = useState([initialResults]);
-  const [armor, setArmor] = useState(initialResults);
-  const [loading, setLoading] = useState(true);
+const Results = ({ results = [], loading }) => {
+  const [setResults] = useState(results);
+  const [armor, setArmor] = useState([]);
 
   function filterArmor(filter) {
     if (filter === 'all') {
-      setResults(initialResults);
+      setResults(results);
     }
     if (filter === 'on view') {
-      const filteredResults = initialResults.filter((armor) => armor.is_on_view === true);
+      const filteredResults = results.filter((armor) => armor.is_on_view === true);
       setResults(filteredResults);
     }
     if (filter === 'off view') {
-      const filteredResults = initialResults.filter((armor) => armor.is_on_view === false);
+      const filteredResults = results.filter((armor) => armor.is_on_view === false);
       setResults(filteredResults);
     }
-  }
-
-  function displayArmor(data) {
-    setLoading(false);
-    return data.map((armor) => (
-      <Armor key={armor.id} armor={armor} />
-    ));
   }
 
   return (
@@ -41,8 +33,8 @@ const Results = ({ results: initialResults }) => {
         ? new Array(6).fill(0).map((_, index) => (
           <Armor key={index} loading={true} />
         ))
-        : armor.map((data) => (
-          <Armor key={data.id} armor={data} />
+        : results.map((armor) => (
+          <Armor key={armor.title} armor={armor} />
         ))}
       </div>
     </div>

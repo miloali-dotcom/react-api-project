@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Results from './Results'
+import Armor from './ui/Armor'
 
 const Landing = () => {
   const [armor, setArmor] = useState([])
@@ -29,6 +30,13 @@ const Landing = () => {
     fetchArmorData();
   }, []);
 
+  function displayArmor(data) {
+    loading = false;
+    return data.map((armor) => (
+      <Armor key={armor.title} armor={armor} />
+    ));
+  }
+
   return (
     <>
       <div className="container">
@@ -42,7 +50,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
-      <Results results={armor.data} loading={loading} />
+      <Results />
     </>
   )
 }
