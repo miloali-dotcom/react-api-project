@@ -22,13 +22,15 @@ const Results = ({ results = [], loading }) => {
 
   return (
     <>
-      <div className="resultsContainer">
-        <select id="filter" defaultValue="default" onChange={(event) => filterArmor(event.target.value)}> 
+    <div className="row filter__row">
+      <select id="filter" defaultValue="default" onChange={(event) => filterArmor(event.target.value)}> 
           <option value="default" disabled>Sort by...</option>
           <option value="all">All</option>
           <option value="on view">On View</option>
           <option value="off view">Off View</option>
-        </select>
+      </select>
+    </div>
+      <div className="results__container">
 
         {loading 
         ? new Array(6).fill(0).map((_, index) => (

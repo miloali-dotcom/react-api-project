@@ -15,18 +15,13 @@ const Armor = ({ armor, loading }) => {
   const { image_id, title, artist_display, date_display } = armor;
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/200,/0/default.jpg` : '';
 
-  // useEffect(() => {
-  //   if (loading || !armor) return;
-
-  // }, [armor, loading]);
-
   return (
     <div className="armor-container">
-          <Link to={`/armor/${armor.id}`}>
+          <Link to={`/armor/${armor.id}`} state={{ armor }}>
             {image_id && <img src={imageUrl} alt={armor.title} className="armor-image" />}
           </Link>
           <h3 className="armor-title">
-            <Link to={`/armor/${armor.id}`} className="armor__title--link">{armor.title}</Link>
+            <Link to={`/armor/${armor.id}`} state={{ armor }} className="armor__title--link">{armor.title}</Link>
           </h3>
           <h4 className="artist-name">{armor.artist_display}</h4>
           <p className="date-made">{armor.date_display}</p>
