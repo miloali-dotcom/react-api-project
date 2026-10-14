@@ -1,14 +1,13 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link, useParams, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Nav from './Nav.jsx'
 import Footer from './Footer.jsx'
 
 const ArmorInfo = () => {
-  const { id } = useParams();
   const location = useLocation();
   const armor = location.state?.armor;
-  const { image_id, title, artist_display, date_display } = armor || {};
+  const { image_id } = armor || {};
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg` : '';
 
   

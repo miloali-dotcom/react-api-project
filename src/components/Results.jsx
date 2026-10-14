@@ -1,34 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Armor from './ui/Armor.jsx'
 
 const Results = ({ results = [], loading }) => {
-  const [filteredResults, setResults] = useState(results);
-  const [armor, setArmor] = useState([]);
-
-  function filterArmor(filter) {
-    if (filter === 'all') {
-      setResults(results);
-    }
-    if (filter === 'on view') {
-      const filteredResults = results.filter((armor) => armor.is_on_view === true);
-      setResults(filteredResults);
-    }
-    if (filter === 'off view') {
-      const filteredResults = results.filter((armor) => armor.is_on_view === false);
-      setResults(filteredResults);
-    }
-  }
-  console.log(results)
 
   return (
     <>
     <div className="row filter__row">
-      <select id="filter" defaultValue="default" onChange={(event) => filterArmor(event.target.value)}> 
-          <option value="default" disabled>Sort by...</option>
-          <option value="all">All</option>
-          <option value="on view">On View</option>
-          <option value="off view">Off View</option>
-      </select>
+      <h3 className="filter__end">All Results</h3>
     </div>
       <div className="results__container">
 

@@ -12,7 +12,7 @@ const Armor = ({ armor, loading }) => {
       </div>
     )
   }
-  const { image_id, title, artist_display, date_display } = armor;
+  const { image_id } = armor
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/200,/0/default.jpg` : '';
 
   return (
