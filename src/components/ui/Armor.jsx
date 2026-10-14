@@ -16,7 +16,7 @@ const Armor = ({ armor, loading }) => {
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/200,/0/default.jpg` : '';
 
   return (
-    <div className="armor-container">
+    <div className="armor-container" key={armor.id}>
           <Link to={`/armor/${armor.id}`} state={{ armor }}>
             {image_id && <img src={imageUrl} alt={armor.title} className="armor-image" />}
           </Link>

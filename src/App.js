@@ -8,7 +8,7 @@ function App(armor) {
       <>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/armor/:id" element={<ArmorInfo armor={armor} />} />
+          <Route path="/armor/:id" element={<ArmorInfo />} />
         </Routes>
       </>
     </Router>

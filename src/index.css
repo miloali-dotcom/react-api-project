@@ -391,7 +391,9 @@ ARMOR/:ID
 }
 
 .armor__selected {
+  padding: 0 80px;
   display: flex;
+  justify-content: center;
 }
 
 .armor__selected--figure {
@@ -432,11 +434,20 @@ ARMOR/:ID
 .fa-arrow-left {
   font-size: 30px;
   color: #52b7b3;
+  transition: all 300ms ease;
 }
 
 .armor__selected--title--top {
   margin-left: 10px;
   margin-bottom: 0;
+  font-size: 24px;
+  color: #52b7b3;
+  transition: all 300ms ease;
+}
+
+.armor__selected--title--top:hover,
+.fa-arrow-left:hover {
+  color: #201e1f;
 }
 
 .armor__summary {
@@ -445,11 +456,13 @@ ARMOR/:ID
 }
 
 .armor__selected--title {
-  margin-bottom: 8px
+  margin-bottom: 8px;
+  color: #52b7b3;
 }
 
 .armor__summary--title {
   margin-bottom: 8px;
+  color: #52b7b3;
 }
 
 .armor__summary--para {
@@ -485,5 +498,9 @@ MEDIA
 
   .nav__links {
     display: none;
+  }
+
+  .armor__selected--figure {
+    padding: 8px;
   }
 }
