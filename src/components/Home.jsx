@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import Nav from './Nav'
 import Landing from './Landing'
 import Footer from './Footer'
-import Results from './Results'
 
 const Home = () => {
   const headers = {

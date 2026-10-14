@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import axios from 'axios'
 import Nav from './Nav'
 import Footer from './Footer'
 
