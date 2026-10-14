@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import Results from './Results'
-import Armor from './ui/Armor'
+import Results from './Results.jsx'
+import Armor from './ui/Armor.jsx'
 
 const Landing = () => {
   const [armor, setArmor] = useState([])

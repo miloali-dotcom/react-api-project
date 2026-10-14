@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Armor from './ui/Armor'
+import Armor from './ui/Armor.jsx'
 
 const Results = ({ results = [], loading }) => {
   const [filteredResults, setResults] = useState(results);

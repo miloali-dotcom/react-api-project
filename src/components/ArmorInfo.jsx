@@ -1,8 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import Nav from './Nav'
-import Footer from './Footer'
+import Nav from './Nav.jsx'
+import Footer from './Footer.jsx'
 
 const ArmorInfo = () => {
   const { id } = useParams();

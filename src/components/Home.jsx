@@ -1,7 +1,7 @@
 import React from 'react'
-import Nav from './Nav'
-import Landing from './Landing'
-import Footer from './Footer'
+import Nav from './Nav.jsx'
+import Landing from './Landing.jsx'
+import Footer from './Footer.jsx'
 
 const Home = () => {
   const headers = {
