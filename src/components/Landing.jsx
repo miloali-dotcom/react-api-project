@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import Results from './Results.jsx'
 import Armor from './ui/Armor.jsx'
@@ -9,16 +9,14 @@ const Landing = () => {
   const [loading, setLoading] = useState(true)
   const [filterOnView, setFilterOnView] = useState(true)
 
-  useEffect(() => {
-    if (searchTerm) {
-      fetchArmorData(searchTerm);
-    }
-  }, [searchTerm]);
+  const headers = {
+    'AIC-User-Agent': 'aic-armory (yali@artic.edu)'
+  };
 
   async function fetchArmorData(searchTerm) {
     if (!searchTerm) return;
     setLoading(true);
-    const { data } = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&fields=id,title,artist_display,date_display,image_id,is_on_view`);
+    const { data } = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}&fields=id,title,artist_display,date_display,image_id,is_on_view`, headers);
     setArmor(data.data);
     setLoading(false);
   }
