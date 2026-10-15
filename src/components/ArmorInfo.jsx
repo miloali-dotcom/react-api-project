@@ -7,7 +7,7 @@ import Footer from './Footer.jsx'
 const ArmorInfo = () => {
   const location = useLocation();
   const armor = location.state?.armor;
-  const { image_id } = armor || {};
+  const { image_id } = armor;
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg` : '';
 
   
