@@ -42,17 +42,17 @@ const Nav = () => {
               </button>
               <ul className="menu__links">
                 <li className="menu__list">
-                  <Link to="/" className="menu__link">
+                  <Link to="/" className="menu__link" onClick={closeMenu}>
                   Home
                   </Link>
                 </li>
                 <li className="menu__list">
-                  <Link to="/about" className="menu__link">
+                  <Link to="/about" className="menu__link" onClick={closeMenu}>
                   About 
                   </Link>
                 </li>
                 <li className="menu__list">
-                  <Link to="/contact" className="menu__link">
+                  <Link to="/contact" className="menu__link" onClick={closeMenu}>
                   Contact
                   </Link>
                 </li>

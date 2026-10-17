@@ -109,7 +109,7 @@ nav {
 
 .nav__link--primary {
   margin: 0 auto;
-  padding: 10px 32px;
+  padding: 6px 24px;
   font-size: 20px;
   color: white;
   margin-top: 2px;
@@ -501,12 +501,51 @@ FOOTER
 
 /*
 
+ABOUT
+
+*/
+
+.about__container {
+  padding: 80px;
+  max-width: 1200px;
+  display: flex;
+}
+
+.about__description {
+  width: 40%;
+  padding: 24px;
+}
+
+.about__title {
+  color: #52b7b3;
+  padding-bottom: 24px;
+}
+
+.about__para {
+  max-width: 448px;
+}
+
+.about__image--wrapper {
+  width: 60%;
+}
+
+/*
+
+CONTACT
+
+*/
+
+.contact__container {
+  padding: 80px;
+}
+
+/*
+
 MEDIA
 
 */
 
-/* SMALL PHONES, LARGE SMARTPHONES */
-@media (max-width: 550px) {
+@media (max-width: 768px) {
   .btn__menu {
     display: block;
   }
