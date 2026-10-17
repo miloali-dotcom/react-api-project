@@ -14,6 +14,7 @@ const Armor = ({ armor, loading }) => {
   }
   const { image_id } = armor
   const imageUrl = image_id ? `https://www.artic.edu/iiif/2/${image_id}/full/200,/0/default.jpg` : '';
+  console.log(imageUrl)
 
   return (
     <div className="armor-container" key={armor.id}>

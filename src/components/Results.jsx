@@ -12,7 +12,7 @@ const Results = ({ results = [], loading }) => {
 
         {loading 
         ? new Array(6).fill(0).map((_, index) => (
-          <Armor key={index} loading={true} />
+          <Armor key={index} loading={loading} />
         ))
         : results.map((armor) => (
           <Armor key={armor.id} armor={armor} />
